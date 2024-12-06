@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        .board {
+            display: grid;
+            grid-template-columns: repeat(3, 100px);
+            gap: 5px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .cell {
+            width: 100px;
+            height: 100px;
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid black;
+            cursor: pointer;
+        }
+        .cell.taken {
+            cursor: not-allowed;
+        }
+        .status, .scoreboard, .names {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+        .controls {
+            margin-top: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Tic Tac Toe</h1>
+
+    <div class="names">
+        <label>Player 1 Name: </label><input type="text" id="player1" placeholder="Enter Player 1 Name">
+        <br><br>
+        <label>Player 2 Name: </label><input type="text" id="player2" placeholder="Enter Player 2 Name">
+    </div>
+    <div class="controls">
+        <button onclick="startGame()">Start Game</button>
+    </div>
+    <div id="game" style="display: none;">
+        <div id="chooseMarker">
+            <p>Player 1, choose your marker:</p>
+            <button onclick="setMarker('X')">X</button>
+            <button onclick="setMarker('O')">O</button>
+        </div>
+        <div class="status" id="status"></div>
+        <div class="scoreboard" id="scoreboard"></div>
+        <div class="board" id="board"></div>
+        <button onclick="resetBoard()">Next Match</button>
+        <button onclick="resetGame()">Reset Scores</button>
+        <button onclick="restartGame()">Restart</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
